@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRUD App</title>
+
+<script src="calender.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+  <h1>CRUD App</h1>
+  
+  <div id="form-container">
+    <input type="number" id="name" placeholder="ID" >
+    <input type="text" id="summary" placeholder="Summary">
+    <input type="text" id="organizer" placeholder="Organizer">
+    <input type="time" id="time" placeholder="Start Time">
+    <button onclick="addItem()">Add</button>
+  </div>
+  
+  <table id="data-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Summary</th>
+        <th>Organizer</th>
+        <th>Start Time</th>
+      </tr>
+    </thead>
+    <tbody id="table-body"></tbody>
+  </table>
+</div>
+
+
+</body>
+</html>

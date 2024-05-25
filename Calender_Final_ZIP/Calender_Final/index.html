@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calender data</title>
+
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+  }
+  h1 {
+    text-align: center;
+  }
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  input[type="text"], input[type="number"], button {
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+  }
+  button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #45a049;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+    </style>
+</head>
+
+<body>
+
+    <div id="calenderData"></div>
+    
+
+    <script>
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+        var requestOptions = {
+            method: "GET",
+            headers: myHeaders,
+            redirect: "follow"
+        };
+
+        //Fetch data from API
+        fetch("https://v1.nocodeapi.com/amitabha/calendar/IywijwMOgqDNwSIh/listEvents", requestOptions)
+            .then(response => response.json())
+            .then(data => {
+
+                /*Extracted data is availabe=le in the data variable*/
+                console.log(data);
+
+                /* Display data on the webpage*/
+                var calendarDataElement = document.getElementById("calendarData");
+
+                data = [];
+                data.items.forEach(item => {
+                    // Create a div to display calendar information
+                    var calendarDataElement = document.createElement("div");
+
+                    calendarDiv.innerHTML = "<h3>" + item.summary + "</h3>";
+
+                    calendarDiv.innerHTML += "<p> Time Zone: " + item.timezone + "</p>";
+                    calendarDiv.innerHTML += "<p>Access Role:" + item.accessRole + "</p>";
+
+                    // calendarDiv.innerHTML = "<h3>" + item.organizer.email + "</h3>";
+                    calendarDiv.innerHTML = "<h3>" + item.start.dateTime; + "</h3>";
+
+                    // Add additional information
+
+
+                    // Append the div to the container
+                    calendarDataElement.appendChild(calendarDiv);
+                    x = {};
+                    x['id'] = 1;
+                    x['name'] = item.summary;
+                    x['country'] = item.organizer.email;
+                    x['salary'] = item.start.dateTime;
+                    data.push[x];
+                });
+
+                console.log(data);
+                renderTable();
+
+
+
+            })
+
+            .catch(error => console.log('error', error));
+    </script>
+
+
+</body>
+
+</html>

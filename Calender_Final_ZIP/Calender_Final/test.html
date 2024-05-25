@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRUD App</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+  }
+  h1 {
+    text-align: center;
+  }
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  input[type="text"], input[type="number"], button {
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+  }
+  button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #45a049;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>CRUD App</h1>
+  <div id="form-container">
+    <input type="text" id="name" placeholder="Name">
+    <input type="text" id="country" placeholder="Country">
+    <input type="number" id="salary" placeholder="Salary">
+    <button onclick="addItem()">Add</button>
+  </div>
+  
+  <table id="data-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Country</th>
+        <th>Salary</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody id="table-body"></tbody>
+  </table>
+</div>
+
+<script>
+  let data = [];
+  renderTable();
+
+  /* Create Operation */
+  function addItem() {
+    const name = document.getElementById('name').value;
+    const country = document.getElementById('country').value;
+    const salary = document.getElementById('salary').value;
+
+    /* name, country and salary must be present - then allow to entry */
+    if (name && country && salary) {
+      const newItem = {
+        id: data.length + 1,
+        name,
+        country,
+        salary
+      };
+      data.push(newItem);
+      renderTable();
+      clearForm();
+    } 
+    /* if anyone of name, country and salary is missing - then don't allow to entry */
+    else {
+      alert('Please fill in all fields.');
+    }
+  }
+
+  /* Read Operation */
+  function renderTable() {
+    const tableBody = document.getElementById('table-body');
+    tableBody.innerHTML = '';
+
+    data.forEach(item => {
+      const row = document.createElement('tr');    // <tr>innerHTML</tr>
+      row.innerHTML = `
+        <td>${item.name}</td>
+        <td>${item.country}</td>
+        <td>${item.salary}</td>
+        <td>
+          <button onclick="editItem(${item.id})">Edit</button>
+          <button onclick="deleteItem(${item.id})">Delete</button>
+        </td>
+      `;
+      // <tr> <td></td> <td></td> <td></td> <td></td> </tr>
+
+      tableBody.appendChild(row);
+    });
+  }
+  function clearForm() {
+    document.getElementById('name').value = '';
+    document.getElementById('country').value = '';
+    document.getElementById('salary').value = '';
+  }
+  
+  /* Update Operation */
+  function editItem(id) {
+    // Fetch that data where item id (Passed in Edit Button) is matched with Data Array (id value).
+    const selectedItem = data.find(item => item.id === id);
+
+    if (selectedItem) {
+      document.getElementById('name').value = selectedItem.name;
+      document.getElementById('country').value = selectedItem.country;
+      document.getElementById('salary').value = selectedItem.salary;
+      const formContainer = document.getElementById('form-container');
+      const addButton = formContainer.querySelector('button');
+      addButton.textContent = 'Save';
+      addButton.onclick = () => saveEdit(id);
+    }
+  }
+  function saveEdit(id) {
+    const name = document.getElementById('name').value;
+    const country = document.getElementById('country').value;
+    const salary = document.getElementById('salary').value;
+
+    if (name && country && salary) {
+      const selectedItem = data.find(item => item.id === id);
+      if (selectedItem) {
+        selectedItem.name = name;
+        selectedItem.country = country;
+        selectedItem.salary = salary;
+        renderTable();
+        clearForm();
+        const formContainer = document.getElementById('form-container');
+        const addButton = formContainer.querySelector('button');
+        addButton.textContent = 'Add';
+        addButton.onclick = addItem;
+      }
+    } else {
+      alert('Please fill in all fields.');
+    }
+  }
+
+  /* Delete Operation */
+  function deleteItem(id) {
+    const index = data.findIndex(item => item.id === id);
+    if (index !== -1) {
+      data.splice(index, 1);
+      renderTable();
+    }
+  }
+
+
+</script>
+
+</body>
+</html>

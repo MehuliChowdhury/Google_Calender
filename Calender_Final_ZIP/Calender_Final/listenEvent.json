@@ -1,0 +1,117 @@
+{
+    "kind": "calendar#events",
+    "etag": "\"p33kc3ccim23oc0o\"",
+    "summary": "amitavachowdhury1998@gmail.com",
+    "description": "",
+    "updated": "2024-05-12T05:26:20.961Z",
+    "timeZone": "Asia/Kolkata",
+    "accessRole": "owner",
+    "defaultReminders": [
+      {
+        "method": "popup",
+        "minutes": 30
+      }
+    ],
+    "items": [
+      {
+        "kind": "calendar#event",
+        "etag": "\"3430982734324000\"",
+        "id": "6bu60p0lsd7rkqg9o02942leap",
+        "status": "confirmed",
+        "htmlLink": "https://www.google.com/calendar/event?eid=NmJ1NjBwMGxzZDdya3FnOW8wMjk0MmxlYXAgYW1pdGF2YWNob3dkaHVyeTE5OThAbQ",
+        "created": "2024-05-12T05:22:47.000Z",
+        "updated": "2024-05-12T05:22:47.162Z",
+        "summary": "Demo1",
+        "creator": {
+          "email": "amitavachowdhury1998@gmail.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "amitavachowdhury1998@gmail.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2024-05-12T23:00:00+05:30",
+          "timeZone": "Asia/Kolkata"
+        },
+        "end": {
+          "dateTime": "2024-05-13T00:00:00+05:30",
+          "timeZone": "Asia/Kolkata"
+        },
+        "iCalUID": "6bu60p0lsd7rkqg9o02942leap@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default"
+      },
+
+      
+      {
+        "kind": "calendar#event",
+        "etag": "\"3430982798386000\"",
+        "id": "7tof9g7t95olmut821nj0abo5i",
+        "status": "confirmed",
+        "htmlLink": "https://www.google.com/calendar/event?eid=N3RvZjlnN3Q5NW9sbXV0ODIxbmowYWJvNWkgYW1pdGF2YWNob3dkaHVyeTE5OThAbQ",
+        "created": "2024-05-12T05:23:19.000Z",
+        "updated": "2024-05-12T05:23:19.193Z",
+        "summary": "Demo 2",
+        "creator": {
+          "email": "amitavachowdhury1998@gmail.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "amitavachowdhury1998@gmail.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2024-05-13T10:30:00+05:30",
+          "timeZone": "Asia/Kolkata"
+        },
+        "end": {
+          "dateTime": "2024-05-13T11:30:00+05:30",
+          "timeZone": "Asia/Kolkata"
+        },
+        "iCalUID": "7tof9g7t95olmut821nj0abo5i@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default"
+      },
+
+
+      {
+        "kind": "calendar#event",
+        "etag": "\"3430982857948000\"",
+        "id": "4nf8i4115geb8l9vr1kuvog4tl",
+        "status": "confirmed",
+        "htmlLink": "https://www.google.com/calendar/event?eid=NG5mOGk0MTE1Z2ViOGw5dnIxa3V2b2c0dGwgYW1pdGF2YWNob3dkaHVyeTE5OThAbQ",
+        "created": "2024-05-12T05:23:33.000Z",
+        "updated": "2024-05-12T05:23:48.974Z",
+        "summary": "Demo 3",
+        "creator": {
+          "email": "amitavachowdhury1998@gmail.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "amitavachowdhury1998@gmail.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2024-05-14T11:00:00+05:30",
+          "timeZone": "Asia/Kolkata"
+        },
+        "end": {
+          "dateTime": "2024-05-14T12:00:00+05:30",
+          "timeZone": "Asia/Kolkata"
+        },
+        "iCalUID": "4nf8i4115geb8l9vr1kuvog4tl@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default"
+      }
+    ]
+  }
